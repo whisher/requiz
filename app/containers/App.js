@@ -23,7 +23,8 @@ export default class App extends Component {
           title: 'Question three',
           options: ['a','b','c']
         }
-      ]
+      ],
+      answers: [1,0,2]
     };
   }
   render() {
@@ -32,8 +33,11 @@ export default class App extends Component {
       <div className={styles.container}>
        <h1>Question</h1>
        <Question  questions={questions} />
-       <Footer />
+       <Footer onSubmit={this.footerSubmitHandler} />
       </div>
     );
+  }
+  footerSubmitHandler(){
+    console.log('this.refs',this.refs);
   }
 }

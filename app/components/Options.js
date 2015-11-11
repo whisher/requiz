@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 class Options extends  Component {
   constructor(props) {
     super(props);
-    this.questionId = Math.random().toString(36).slice(2);
+    this.questionId = this.props.questionId;
   }
   render() {
     const options = this.props.options;
@@ -15,9 +15,9 @@ class Options extends  Component {
   }
   renderOptions(option,index) {
     return (
-      <div class="radio" /*key={`option${this.questionId}`} give error Encountered two children with the same key*/>
+      <div className="radio"  key={`option${this.questionId-index}`}>
         <label>
-          <input type="radio" name={`question${this.questionId}`} value={index} />
+          <input type="radio"  name={`question${this.questionId}`} value={index} />
           {option}
         </label>
       </div>

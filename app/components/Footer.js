@@ -8,7 +8,7 @@ class Footer extends  Component {
   render() {
     return (
       <div className={styles.footer}>
-        <button type="submit" className={styles.btn}>Submit</button>
+        <button type="submit" onClick={() =>this.props.onSubmit()} className={styles.btn}>Submit</button>
       </div>
     );
   }
