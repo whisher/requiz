@@ -1,17 +1,27 @@
 'use strict';
 
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+/**
+ * Module dependencies.
+ */
+import path from 'path';
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
-  devtool: 'eval-source-map',
-  entry: [
-    'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, 'app/main.js')
+const ENTRY = path.join(__dirname, 'app/index.js');
+const OUTPUT = path.join(__dirname, '/dist/');
+const APP = path.join(__dirname, '/app/');
+
+export default  {
+devtool: 'eval-source-map',
+  entry:   [
+        'webpack-hot-middleware/client?reload=true',
+        ENTRY
   ],
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   output: {
-    path: path.join(__dirname, '/dist/'),
+    path: OUTPUT,
     filename: '[name].js',
     publicPath: '/'
   },
@@ -31,13 +41,14 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js?$/,
-      exclude: /node_modules/,
+      include: APP,
       loader: 'babel?optional=es7.decorators'
     }, {
       test: /\.json?$/,
       loader: 'json'
     }, {
       test: /\.css$/,
+      include: APP,
       loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
     }]
   }

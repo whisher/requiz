@@ -31,13 +31,13 @@ if (isDeveloping) {
   app.use(webpackHotMiddleware(compiler));
 }
 
-app.get('*', function response(req, res) {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-app.listen(port, 'localhost', function onStart(err) {
+app.listen(port, 'localhost', (err) => {
   if (err) {
     console.log(err);
   }
-  console.info('==> 🌎 Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port);
+  console.info('==>Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port);
 });

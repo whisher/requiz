@@ -1,23 +1,33 @@
 'use strict';
 
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var StatsPlugin = require('stats-webpack-plugin');
+/**
+ * Module dependencies.
+ */
+import path from 'path';
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import StatsPlugin from 'stats-webpack-plugin';
 
-module.exports = {
+const ENTRY = path.join(__dirname, 'app/index.js');
+const OUTPUT = path.join(__dirname, '/dist/');
+const APP = path.join(__dirname, '/app/');
+
+export default {
   entry: [
-    path.join(__dirname, 'app/main.js')
-  ],
+    ENTRY
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   output: {
-    path: path.join(__dirname, '/dist/'),
+    path: OUTPUT,
     filename: '[name]-[hash].min.js'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new HtmlWebpackPlugin({
-      template: 'app/index.tpl.html',
+      template: 'app/index.html',
       inject: 'body',
       filename: 'index.html'
     }),
@@ -39,13 +49,14 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js?$/,
-      exclude: /node_modules/,
+      include: APP,
       loader: 'babel?optional=es7.decorators'
     }, {
       test: /\.json?$/,
       loader: 'json'
     }, {
       test: /\.css$/,
+      include: APP,
       loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!postcss')
     }]
   },
