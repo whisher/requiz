@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Question from '../components/Question';
+import Footer from '../components/Footer';
 import styles from './App.css';
 
 export default class App extends Component {
@@ -10,7 +11,7 @@ export default class App extends Component {
         {
           id: 1,
           title: 'Question one',
-          options: ['a','b','c']
+          options: ['a','b','c','d']
         },
         {
           id:2,
@@ -31,6 +32,7 @@ export default class App extends Component {
       <div className={styles.container}>
        <h1>Question</h1>
        <Question  questions={questions} />
+       <Footer />
       </div>
     );
   }

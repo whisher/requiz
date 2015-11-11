@@ -8,17 +8,17 @@ class Question extends  Component {
   render() {
     const questions = this.props.questions;
     return (
-<div>
+      <div className="box-container">
         {questions.map(this.renderQuestion)}
-</div>
+      </div>
     );
   }
   renderQuestion(question) {
     return (
-      <div className="box">
-        <h2 key={`question${question.id}`}>{question.title}</h2>
+      <div className="box"  key={`question${question.id}`}>
+        <h2>{question.title}</h2>
         <ul>
-          <Options options={question.options} />
+          <Options questionId={question.id} options={question.options} />
         </ul>
       </div>
     );
