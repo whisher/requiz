@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import styles from './Common.css';
-console.log('style',styles.footer);
+import styles from '../styles/footer.css';
+
 class Footer extends  Component {
   constructor(props) {
     super(props);
@@ -8,7 +8,7 @@ class Footer extends  Component {
   render() {
     return (
       <div className={styles.footer}>
-        <button type="submit" onClick={() =>this.props.onSubmit()} className={styles.btn}>Submit</button>
+        <button type="submit" className={styles.normal}>Submit</button>
       </div>
     );
   }

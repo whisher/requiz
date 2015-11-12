@@ -1,0 +1,7 @@
+.container {
+  composes: default-primary-color from "./shared/colors.css";
+  border: 1px solid #FFFFFF;
+  margin: 0 auto;
+  width: 770px;
+}
+

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Question from '../components/Question';
 import Footer from '../components/Footer';
-import styles from './App.css';
+import Header from '../components/Header';
+import Question from '../components/Question';
+import styles from '../styles/app.css';
 
 export default class App extends Component {
   constructor(props) {
@@ -31,13 +32,10 @@ export default class App extends Component {
     const questions = this.state.questions;
     return (
       <div className={styles.container}>
-       <h1>Question</h1>
+      <Header />
        <Question  questions={questions} />
-       <Footer onSubmit={this.footerSubmitHandler} />
+       <Footer />
       </div>
     );
-  }
-  footerSubmitHandler(){
-    console.log('this.refs',this.refs);
   }
 }
