@@ -1,10 +1,10 @@
-import * as types from '../constants/ActionTypes';
+import { combineReducers } from 'redux';
+import questions from './questions';
+import answers from './answers';
 
-export default function qa(state, action) {
-  switch (action.type) {
-  case types.CHOSE_ANSWER:
-    return [...state];
-  default:
-    return state;
-  }
-}
+const questionsAndAnswers = combineReducers({
+  questions,
+  answers
+});
+
+export default questionsAndAnswers;

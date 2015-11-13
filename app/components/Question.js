@@ -9,7 +9,7 @@ class Question extends  Component {
     const questions = this.props.questions;
     return (
       <div className="box-container">
-        {questions.map(this.renderQuestion)}
+        {questions.map(this.renderQuestion, this)}
       </div>
     );
   }
@@ -18,14 +18,15 @@ class Question extends  Component {
       <div className="box"  key={`question${question.id}`}>
         <h2>{question.title}</h2>
         <ul>
-          <Options questionId={question.id} options={question.options} />
+          <Options onChoseOption={this.props.onChoseOption}  questionId={question.id} options={question.options} />
         </ul>
       </div>
     );
   }
 }
 Question.propTypes = {
-  questions: PropTypes.array.isRequired
+  questions: PropTypes.array.isRequired,
+  onChoseOption: PropTypes.func.isRequired
 };
 
 export default Question;

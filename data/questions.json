@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Question one",
+    "options": ["a","b","c","d"],
+    "answer": 1
+  },
+  {
+    "id":2,
+    "title": "Question two",
+    "options": ["a","b","c"],
+    "answer": 0
+  },
+  {
+    "id":3,
+    "title": "Question three",
+    "options": ["a","b","c"],
+    "answer": 2
+  }
+]

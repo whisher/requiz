@@ -10,6 +10,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 const ENTRY = path.join(__dirname, 'app/index.js');
 const OUTPUT = path.join(__dirname, '/dist/');
 const APP = path.join(__dirname, '/app/');
+const TEMPLATE = 'app/index.html';
 
 export default  {
 devtool: 'eval-source-map',
@@ -27,7 +28,7 @@ devtool: 'eval-source-map',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'app/index.tpl.html',
+      template: TEMPLATE,
       inject: 'body',
       filename: 'index.html'
     }),

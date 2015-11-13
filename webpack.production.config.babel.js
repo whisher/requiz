@@ -12,11 +12,12 @@ import StatsPlugin from 'stats-webpack-plugin';
 const ENTRY = path.join(__dirname, 'app/index.js');
 const OUTPUT = path.join(__dirname, '/dist/');
 const APP = path.join(__dirname, '/app/');
+const TEMPLATE = 'app/index.html';
 
 export default {
   entry: [
     ENTRY
-  },
+  ],
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
@@ -27,7 +28,7 @@ export default {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new HtmlWebpackPlugin({
-      template: 'app/index.html',
+      template: TEMPLATE,
       inject: 'body',
       filename: 'index.html'
     }),
