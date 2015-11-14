@@ -8,10 +8,12 @@ export default function answers(state = [], action) {
       option: action.option
     };
     let index = state
-      .map(function(answer) { return answer.id; })
+      .map(question => question.id )
       .indexOf(action.questionId);
     if(index !== -1){
-      return [...state.splice(index,1, answer)];
+      return state.filter((question, i) => {
+        return i !== index;
+      }).concat(answer);
     }
     return [...state,answer];
   default:

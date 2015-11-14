@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import styles from '../styles/options.css';
 
 class Options extends  Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Options extends  Component {
   }
   renderOptions(option, index) {
     return (
-      <div className="radio"  key={`option${this.questionId-index}`}>
+      <div className={styles.box}  key={`option${this.questionId-index}`}>
         <label>
           <input
             type="radio"

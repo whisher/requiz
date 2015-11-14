@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { choseAnswer } from '../actions';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import Question from '../components/Question';
+import Questions from '../components/Questions';
 import styles from '../styles/app.css';
 
 class App extends Component {
@@ -38,7 +38,7 @@ class App extends Component {
     return (
       <div className={styles.container}>
       <Header />
-       <Question  questions={questions} onChoseOption={(questionId, answerId) =>
+       <Questions  questions={questions} onChoseOption={(questionId, answerId) =>
             dispatch(choseAnswer(questionId, answerId))
           } />
        <Footer />
