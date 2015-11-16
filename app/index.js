@@ -1,14 +1,17 @@
+import 'babel-core/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import qAndAReducers from './reducers';
+import configureStore from './store/configureStore';
 import App from './containers/App';
+import styles from './styles/main.css';
 
-let store = createStore(qAndAReducers);
+const store = configureStore();
+
 let unsubscribe = store.subscribe(() =>
   console.log('store.getState',store.getState())
 );
+
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(

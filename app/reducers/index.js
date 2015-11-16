@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import questions from './questions';
+import items from './questions';
 import answers from './answers';
 
-const questionsAndAnswers = combineReducers({
-  questions,
+const rootReducer =  combineReducers({
+  items,
   answers
 });
 
-export default questionsAndAnswers;
+export default rootReducer;

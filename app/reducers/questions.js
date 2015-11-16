@@ -1,8 +1,22 @@
-import * as types from '../constants';
+import { REQUEST_QUESTIONS, RECEIVE_QUESTIONS } from '../constants';
 
-export default function questions(state = [], action) {
+const initialState = {
+  isFetching: false,
+  questions: []
+};
+
+export default function questions(state = initialState, action) {
   switch (action.type) {
+    case REQUEST_QUESTIONS:
+      return Object.assign({}, state, {
+        isFetching: true
+      });
+    case RECEIVE_QUESTIONS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        questions: action.questions
+      });
     default:
-    return state;
+      return state
   }
 }

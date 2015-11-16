@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { choseAnswer } from '../actions';
+import { fetchQuestions, choseAnswer } from '../actions';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Questions from '../components/Questions';
@@ -9,42 +9,34 @@ import styles from '../styles/app.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      questions: [
-        {
-          id: 1,
-          title: 'Question one',
-          options: ['a','b','c','d'],
-          answer: 1
-        },
-        {
-          id:2,
-          title: 'Question two',
-          options: ['a','b','c'],
-          answer: 0
-        },
-        {
-          id:3,
-          title: 'Question three',
-          options: ['a','b','c'],
-          answer: 2
-        }
-      ]
-    };
+  }
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchQuestions());
   }
   render() {
-    const { dispatch } = this.props;
-    const questions = this.state.questions;
+    const { dispatch, questions, isFetching, answers} = this.props;
+    const isDisabled = (questions.length && answers.length)  && (questions.length === answers.length);
     return (
       <div className={styles.container}>
       <Header />
        <Questions  questions={questions} onChoseOption={(questionId, answerId) =>
             dispatch(choseAnswer(questionId, answerId))
           } />
-       <Footer />
+       <Footer isDisabled={!isDisabled} />
       </div>
     );
   }
 }
-export default connect()(App);
+
+function mapStateToProps(state) {
+  const { items, answers } = state;
+  const { questions, isFetching } = items;
+  return {
+    questions,
+    isFetching,
+    answers
+  }
+}
+export default connect(mapStateToProps)(App);
 

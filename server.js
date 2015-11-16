@@ -31,6 +31,10 @@ if (isDeveloping) {
   app.use(webpackHotMiddleware(compiler));
 }
 
+app.get('/questions', (req, res) => {
+  res.sendFile(path.join(__dirname, 'data/questions.json'));
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
