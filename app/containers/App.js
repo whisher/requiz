@@ -21,7 +21,8 @@ class App extends Component {
       isFetching,
       answers,
       isSubmitForSolutions} = this.props;
-    const isDisabled = (questions.length && answers.length)  && (questions.length === answers.length);
+    const isDisabled = (questions.length && Object.keys(answers).length)
+    && (questions.length === Object.keys(answers).length);
     return (
       <div className={styles.container}>
       <Header />

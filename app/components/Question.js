@@ -8,11 +8,13 @@ class Question extends  Component {
   }
   render() {
     const question = this.props.question;
+    const answers = this.props.answers;
     return (
       <ul className={styles.box}>
           <Options
           onChoseOption={this.props.onChoseOption}
           question={question}
+          answers={answers}
           isSubmitForSolutions={this.props.isSubmitForSolutions} />
       </ul>
     );
@@ -21,6 +23,7 @@ class Question extends  Component {
 }
 Question.propTypes = {
   question: PropTypes.object.isRequired,
+  answers: PropTypes.object.isRequired,
   onChoseOption: PropTypes.func.isRequired,
   isSubmitForSolutions: PropTypes.bool.isRequired
 };

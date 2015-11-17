@@ -1,8 +1,11 @@
 .normal{
   composes: accent-color from "./shared/colors.css";
+  border: none;
+  height: 30px;
+  width: 80px;
 }
 .footer{
-  composes: dark-primary-color from "./shared/colors.css";
+  composes: default-primary-color from "./shared/colors.css";
   height: 50px;
   line-height: 50px;
   padding-right: 10px;

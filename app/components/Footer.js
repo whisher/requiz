@@ -8,7 +8,6 @@ class Footer extends  Component {
   }
   handleSubmit(e){
     e.preventDefault();
-    alert('fffff');
     this.props.submitForSolutions(true);
   }
   render() {

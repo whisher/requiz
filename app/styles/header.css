@@ -1,5 +1,5 @@
 .header {
-  composes: dark-primary-color from "./shared/colors.css";
+  composes: default-primary-color from "./shared/colors.css";
   height: 100px;
   line-height: 100px;
   margin:0;

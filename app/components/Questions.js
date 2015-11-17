@@ -22,6 +22,7 @@ class Questions extends  Component {
         <QuestionHeader title={question.title} />
         <Question
         question={question}
+        answers={this.props.answers}
         onChoseOption={this.props.onChoseOption}
         isSubmitForSolutions={this.props.isSubmitForSolutions} />
       </div>
@@ -30,7 +31,7 @@ class Questions extends  Component {
 }
 Questions.propTypes = {
   questions: PropTypes.array.isRequired,
-  answers: PropTypes.array.isRequired,
+  answers: PropTypes.object.isRequired,
   onChoseOption: PropTypes.func.isRequired,
   isSubmitForSolutions: PropTypes.bool.isRequired
 };

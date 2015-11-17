@@ -12,7 +12,8 @@
     "node",
     "react",
     "redux",
-    "webpack"
+    "webpack",
+    "css-modules"
   ],
   "author": "Fabio Bedini aka whisher",
   "license": "MIT",

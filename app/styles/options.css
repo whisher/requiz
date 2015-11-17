@@ -1,4 +1,10 @@
 .box{}
+.normal{
+  color: #212121;
+}
 .success{
-  color:red;
+  color: green;
+}
+.fail{
+  color: red;
 }
