@@ -13,20 +13,26 @@ class Questions extends  Component {
       <div className={styles.boxContainer}>
         {questions.map(this.renderQuestion, this)}
       </div>
+
     );
   }
   renderQuestion(question) {
     return (
       <div className={styles.box}  key={`question${question.id}`}>
         <QuestionHeader title={question.title} />
-        <Question question={question} onChoseOption={this.props.onChoseOption} />
+        <Question
+        question={question}
+        onChoseOption={this.props.onChoseOption}
+        isSubmitForSolutions={this.props.isSubmitForSolutions} />
       </div>
     );
   }
 }
 Questions.propTypes = {
   questions: PropTypes.array.isRequired,
-  onChoseOption: PropTypes.func.isRequired
+  answers: PropTypes.array.isRequired,
+  onChoseOption: PropTypes.func.isRequired,
+  isSubmitForSolutions: PropTypes.bool.isRequired
 };
 
 export default Questions;

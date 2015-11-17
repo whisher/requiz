@@ -1,5 +1,8 @@
 import fetch from 'isomorphic-fetch';
-import { REQUEST_QUESTIONS, RECEIVE_QUESTIONS, CHOSE_ANSWER } from '../constants';
+import { REQUEST_QUESTIONS,
+  RECEIVE_QUESTIONS,
+  CHOSE_ANSWER,
+  SUBMIT_FOR_SOLUTIONS } from '../constants';
 
 const QUESTIONS_URL = '/questions';
 
@@ -30,8 +33,11 @@ export function fetchQuestions() {
     }
 }
 
-
 export function choseAnswer(questionId, option) {
   return { type: CHOSE_ANSWER, questionId, option};
+}
+
+export function submitForSolutions(flag) {
+  return { type: SUBMIT_FOR_SOLUTIONS, flag};
 }
 

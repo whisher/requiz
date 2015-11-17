@@ -4,10 +4,10 @@ import styles from '../styles/options.css';
 class Options extends  Component {
   constructor(props) {
     super(props);
-    this.questionId = this.props.questionId;
+    this.questionId = this.props.question.id;
   }
   render() {
-    const options = this.props.options;
+    const options = this.props.question.options;
     return (
       <li>
         {options.map(this.renderOptions, this)}
@@ -15,9 +15,10 @@ class Options extends  Component {
     );
   }
   renderOptions(option, index) {
+    console.log('OPTIONS', this.props);
     return (
       <div className={styles.box}  key={`option${this.questionId-index}`}>
-        <label>
+        <label className={styles.success}>
           <input
             type="radio"
             name={`question${this.questionId}`}
@@ -33,8 +34,7 @@ class Options extends  Component {
   }
 }
 Options.propTypes = {
-  options: PropTypes.array.isRequired,
-  questionId: PropTypes.number.isRequired,
+  question: PropTypes.object.isRequired,
   onChoseOption: PropTypes.func.isRequired
 };
 
