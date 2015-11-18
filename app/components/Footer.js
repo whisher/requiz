@@ -6,7 +6,7 @@ class Footer extends  Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
     this.props.submitForSolutions(true);
   }

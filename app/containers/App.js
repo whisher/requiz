@@ -51,7 +51,7 @@ function mapStateToProps(state) {
     isFetching,
     answers,
     isSubmitForSolutions
-  }
+  };
 }
 export default connect(mapStateToProps)(App);
 

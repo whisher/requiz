@@ -9,28 +9,28 @@ const QUESTIONS_URL = '/questions';
 function requestQuestions() {
   return {
     type: REQUEST_QUESTIONS
-  }
+  };
 }
 
 function receiveQuestions(questions) {
   return {
     type: RECEIVE_QUESTIONS,
     questions: questions
-  }
+  };
 }
 
 export function fetchQuestions() {
-  return function (dispatch) {
+  return function thunk(dispatch) {
     dispatch(requestQuestions());
     return fetch(QUESTIONS_URL)
       .then(response => {
         if (response.status >= 400) {
-            throw new Error('Bad response from server');
+          throw new Error('Bad response from server');
         }
         return response.json();
       })
-      .then(questions => dispatch(receiveQuestions(questions)) )
-    }
+      .then(questions => dispatch(receiveQuestions(questions)) );
+  };
 }
 
 export function choseAnswer(questionId, option) {

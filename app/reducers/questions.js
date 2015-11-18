@@ -17,6 +17,6 @@ export default function questions(state = initialState, action) {
         questions: action.questions
       });
     default:
-      return state
+      return state;
   }
 }

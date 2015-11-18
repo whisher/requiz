@@ -6,21 +6,13 @@ class Options extends  Component {
     super(props);
     this.questionId = this.props.question.id;
   }
-  render() {
-    const options = this.props.question.options;
-    const isSubmitForSolutions = this.props.isSubmitForSolutions;
-    return (
-      <li>
-      {isSubmitForSolutions ?
-        options.map(this.renderSolutions, this) :
-        options.map(this.renderOptions, this)}
-      </li>
-    );
+  optionHandler(e) {
+    this.props.onChoseOption(this.questionId, e.target.value);
   }
   renderOptions(option, index) {
     return (
-      <div className={styles.normal}  key={`option${this.questionId-index}`}>
-        <label className={styles.success}>
+      <div className={styles.box}  key={`option${this.questionId-index}`}>
+        <label className={styles.normal}>
           <input
             type="radio"
             name={`question${this.questionId}`}
@@ -45,8 +37,16 @@ class Options extends  Component {
       </div>
     );
   }
-  optionHandler(e) {
-    this.props.onChoseOption(this.questionId, e.target.value);
+  render() {
+    const options = this.props.question.options;
+    const isSubmitForSolutions = this.props.isSubmitForSolutions;
+    return (
+      <li>
+      {isSubmitForSolutions ?
+        options.map(this.renderSolutions, this) :
+        options.map(this.renderOptions, this)}
+      </li>
+    );
   }
 }
 Options.propTypes = {

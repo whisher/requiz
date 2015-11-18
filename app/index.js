@@ -7,11 +7,6 @@ import App from './containers/App';
 import styles from './styles/main.css';
 
 const store = configureStore();
-
-let unsubscribe = store.subscribe(() =>
-  console.log('store.getState',store.getState())
-);
-
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(

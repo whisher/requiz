@@ -7,15 +7,6 @@ class Questions extends  Component {
   constructor(props) {
     super(props);
   }
-  render() {
-    const questions = this.props.questions;
-    return (
-      <div className={styles.boxContainer}>
-        {questions.map(this.renderQuestion, this)}
-      </div>
-
-    );
-  }
   renderQuestion(question) {
     return (
       <div className={styles.box}  key={`question${question.id}`}>
@@ -26,6 +17,15 @@ class Questions extends  Component {
         onChoseOption={this.props.onChoseOption}
         isSubmitForSolutions={this.props.isSubmitForSolutions} />
       </div>
+    );
+  }
+  render() {
+    const questions = this.props.questions;
+    return (
+      <div className={styles.boxContainer}>
+        {questions.map(this.renderQuestion, this)}
+      </div>
+
     );
   }
 }
